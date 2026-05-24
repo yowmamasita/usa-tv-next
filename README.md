@@ -4,6 +4,8 @@
 
 ## Install
 
-<a href="stremio://kyzhqsmifhfvzykekndd.supabase.co/storage/v1/object/public/usatv/manifest.json">Install in Stremio</a>
+```
+stremio://kyzhqsmifhfvzykekndd.supabase.co/storage/v1/object/public/usatv/manifest.json
+```
 
 [Install via Stremio Web](https://web.stremio.com/#/addons?addon=https%3A%2F%2Fkyzhqsmifhfvzykekndd.supabase.co%2Fstorage%2Fv1%2Fobject%2Fpublic%2Fusatv%2Fmanifest.json)
