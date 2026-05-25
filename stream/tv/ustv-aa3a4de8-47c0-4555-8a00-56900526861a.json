@@ -1,12 +1,1 @@
-{
-  "streams": [
-    {
-      "url": "https://tvpass.org/live/fanduel-sports-network-south-carolinas/sd",
-      "behaviorHints": {
-        "notWebReady": true
-      },
-      "name": "SD",
-      "description": "TP"
-    }
-  ]
-}
+{"streams":[]}

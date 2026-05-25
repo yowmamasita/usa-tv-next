@@ -1,12 +1,1 @@
-{
-  "streams": [
-    {
-      "url": "https://tvpass.org/live/marquee-sports-network/sd",
-      "behaviorHints": {
-        "notWebReady": true
-      },
-      "name": "SD",
-      "description": "TP"
-    }
-  ]
-}
+{"streams":[{"url":"https://tvpass.org/live/marquee-sports-network/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"}]}

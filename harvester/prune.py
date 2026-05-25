@@ -1,7 +1,7 @@
 """Test all streams in the addon catalog and remove dead ones.
 
-A stream is only considered dead after failing 3 consecutive tests
-with a short pause between retries (all within ~1 minute).
+A stream is only considered dead after failing every 30s for 5 minutes.
+All failed URLs are retried in parallel — each gets its own retry loop.
 """
 from __future__ import annotations
 
@@ -10,18 +10,19 @@ import json
 from pathlib import Path
 
 from rich.console import Console
+from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, MofNCompleteColumn
 
 from harvester.config import DEFAULT_TEST_CONCURRENCY, DEFAULT_TIMEOUT
 from harvester.models import ParsedStream, StreamStatus
-from harvester.tester import test_streams
+from harvester.tester import test_stream, test_streams
 
 CATALOG_PATH = Path(__file__).resolve().parent.parent / "catalog" / "tv" / "all.json"
 META_DIR = Path(__file__).resolve().parent.parent / "meta" / "tv"
 GENRE_DIR = Path(__file__).resolve().parent.parent / "catalog" / "tv" / "all"
 STREAM_DIR = Path(__file__).resolve().parent.parent / "stream" / "tv"
 
-MAX_RETRIES = 3
-RETRY_DELAY = 20
+RETRY_INTERVAL = 30
+RETRY_DURATION = 600
 
 console = Console()
 
@@ -43,6 +44,18 @@ def _remove_dead_from_list(streams: list[dict], dead_urls: set[str]) -> list[dic
     return [s for s in streams if s.get("url", "") not in dead_urls]
 
 
+async def _retry_one(url: str, timeout: float, sem: asyncio.Semaphore) -> tuple[str, bool]:
+    """Retry a single URL every RETRY_INTERVAL seconds for RETRY_DURATION. Returns (url, recovered)."""
+    max_attempts = RETRY_DURATION // RETRY_INTERVAL
+    for _ in range(max_attempts):
+        await asyncio.sleep(RETRY_INTERVAL)
+        async with sem:
+            result = await test_stream(url, timeout=timeout)
+        if result.status == StreamStatus.WORKING:
+            return url, True
+    return url, False
+
+
 async def _prune(timeout: float, concurrency: int, dry_run: bool) -> dict:
     catalog = json.loads(CATALOG_PATH.read_text())
     all_streams = _collect_catalog_streams(catalog)
@@ -53,7 +66,6 @@ async def _prune(timeout: float, concurrency: int, dry_run: bool) -> dict:
 
     console.print(f"[bold]Found {len(all_streams)} unique stream URLs in catalog[/]")
 
-    stream_by_url = {s.url: s for s in all_streams}
     results = await test_streams(all_streams, timeout=timeout, concurrency=concurrency)
 
     working_urls = {r.url for r in results if r.status == StreamStatus.WORKING}
@@ -61,23 +73,38 @@ async def _prune(timeout: float, concurrency: int, dry_run: bool) -> dict:
 
     console.print(f"\n[bold]Pass 1:[/] [green]{len(working_urls)} working[/], [red]{len(failed_urls)} failed[/]")
 
-    for attempt in range(2, MAX_RETRIES + 1):
-        if not failed_urls:
-            break
-        retry_streams = [stream_by_url[url] for url in failed_urls]
-        console.print(f"\n[bold]Waiting {RETRY_DELAY}s before retry {attempt}/{MAX_RETRIES}...[/]")
-        await asyncio.sleep(RETRY_DELAY)
+    if failed_urls:
+        max_attempts = RETRY_DURATION // RETRY_INTERVAL
+        console.print(f"[bold]Retrying {len(failed_urls)} failed streams every {RETRY_INTERVAL}s for {RETRY_DURATION}s ({max_attempts} attempts each, all in parallel)...[/]\n")
 
-        console.print(f"[bold]Pass {attempt}:[/] retesting {len(retry_streams)} failed streams")
-        retry_results = await test_streams(retry_streams, timeout=timeout, concurrency=concurrency)
+        sem = asyncio.Semaphore(concurrency)
+        tasks = [_retry_one(url, timeout, sem) for url in failed_urls]
 
-        recovered = {r.url for r in retry_results if r.status == StreamStatus.WORKING}
-        working_urls |= recovered
-        failed_urls -= recovered
-        console.print(f"[bold]Pass {attempt}:[/] [green]{len(recovered)} recovered[/], [red]{len(failed_urls)} still failing[/]")
+        recovered_urls: set[str] = set()
+        with Progress(
+            SpinnerColumn(),
+            TextColumn("[bold blue]{task.description}"),
+            BarColumn(),
+            MofNCompleteColumn(),
+            TextColumn("[green]{task.fields[recovered]}R[/] [red]{task.fields[dead]}D[/]"),
+        ) as progress:
+            ptask = progress.add_task("Retrying", total=len(tasks), recovered=0, dead=0)
+            for coro in asyncio.as_completed(tasks):
+                url, recovered = await coro
+                if recovered:
+                    recovered_urls.add(url)
+                progress.update(
+                    ptask, advance=1,
+                    recovered=len(recovered_urls),
+                    dead=len(failed_urls) - len(recovered_urls) - (len(tasks) - progress.tasks[ptask].completed - 1),
+                )
+
+        working_urls |= recovered_urls
+        failed_urls -= recovered_urls
+        console.print(f"\n[bold]Retries done:[/] [green]{len(recovered_urls)} recovered[/], [red]{len(failed_urls)} confirmed dead[/]")
 
     dead_urls = failed_urls
-    console.print(f"\n[bold]Final:[/] [green]{len(working_urls)} working[/], [red]{len(dead_urls)} dead (failed {MAX_RETRIES}x)[/]")
+    console.print(f"\n[bold]Final:[/] [green]{len(working_urls)} working[/], [red]{len(dead_urls)} dead[/]")
 
     if dry_run:
         console.print("[yellow]Dry run — no files modified[/]")

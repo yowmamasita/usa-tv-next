@@ -1,12 +1,1 @@
-{
-  "streams": [
-    {
-      "url": "https://tvpass.org/live/tv-land-eastern/sd",
-      "behaviorHints": {
-        "notWebReady": true
-      },
-      "name": "SD",
-      "description": "TP"
-    }
-  ]
-}
+{"streams":[{"url":"https://tvpass.org/live/tv-land-eastern/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"},{"url":"https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5c2d64ffbdf11b71587184b8/master.m3u8?advertisingId=&appName=web&appStoreUrl=&appVersion=DNT&app_name=&architecture=&buildVersion=&deviceDNT=0&deviceId=5c2d64ffbdf11b71587184b8&deviceLat=&deviceLon=&deviceMake=web&deviceModel=web&deviceType=web&deviceVersion=DNT&includeExtendedEvents=false&marketingRegion=US&serverSideAds=false&sid=455&terminate=false&userId=","behaviorHints":{"notWebReady":true},"name":"SD","description":"HV:SERVICE-STIT"},{"url":"https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5d40bebc5e3d2750a2239d7e/master.m3u8?advertisingId=&appName=web&appStoreUrl=&appVersion=DNT&app_name=&architecture=&buildVersion=&deviceDNT=0&deviceId=5d40bebc5e3d2750a2239d7e&deviceLat=&deviceLon=&deviceMake=web&deviceModel=web&deviceType=web&deviceVersion=DNT&includeExtendedEvents=false&marketingRegion=US&serverSideAds=false&sid=130&terminate=false&userId=","behaviorHints":{"notWebReady":true},"name":"SD","description":"HV:SERVICE-STIT"}]}

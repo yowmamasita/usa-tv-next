@@ -1,12 +1,1 @@
-{
-  "streams": [
-    {
-      "url": "https://tvpass.org/live/BETHerEast/sd",
-      "behaviorHints": {
-        "notWebReady": true
-      },
-      "name": "SD",
-      "description": "TP"
-    }
-  ]
-}
+{"streams":[{"url":"https://tvpass.org/live/BETHerEast/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"},{"url":"https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5d51e6949ab8e2b35bdcaa9f/master.m3u8?advertisingId=&appName=web&appStoreUrl=&appVersion=DNT&app_name=&architecture=&buildVersion=&deviceDNT=0&deviceId=5d51e6949ab8e2b35bdcaa9f&deviceLat=&deviceLon=&deviceMake=web&deviceModel=web&deviceType=web&deviceVersion=DNT&includeExtendedEvents=false&marketingRegion=US&serverSideAds=false&sid=175&terminate=false&userId=","behaviorHints":{"notWebReady":true},"name":"SD","description":"HV:SERVICE-STIT"}]}

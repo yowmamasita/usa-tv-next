@@ -1,12 +1,1 @@
-{
-  "streams": [
-    {
-      "url": "https://amd-mediator-eolq3tk4la-uk.a.run.app/cbs/map.m3u8?imafw__fw_is_lat=&imafw__fw_vcid2=&imafw__fw_app_bundle=&imafw__fw_us_privacy=1YNY&attmas=not_determined&am.originUrl=https%3A%2F%2Fdai.google.com%2Flinear%2Fhls%2Fevent%2F7f3Wv6f7QEKfQna22jHqLQ%2Fmaster.m3u8&imafw_csid=desktop_web&imafw__fw_did=&height=1080&ip_addr=193.228.206.147&page_url=https%25253A%25252F%25252Flocalnow.com%25252Fchannels%25252Fcbs-news-chicago-hyperlocal&ua=Mozilla%2F5.0%20%28Windows%20NT%2010.0%3B%20Win64%3B%20x64%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F122.0.0.0%20Safari%2F537.36&width=1920&app_version=0.0.0",
-      "behaviorHints": {
-        "notWebReady": true
-      },
-      "name": "HD",
-      "description": "LN"
-    }
-  ]
-}
+{"streams":[{"url":"https://amd-mediator-eolq3tk4la-uk.a.run.app/cbs/map.m3u8?imafw__fw_is_lat=&imafw__fw_vcid2=&imafw__fw_app_bundle=&imafw__fw_us_privacy=1YNY&attmas=not_determined&am.originUrl=https%3A%2F%2Fdai.google.com%2Flinear%2Fhls%2Fevent%2F7f3Wv6f7QEKfQna22jHqLQ%2Fmaster.m3u8&imafw_csid=desktop_web&imafw__fw_did=&height=1080&ip_addr=193.228.206.147&page_url=https%25253A%25252F%25252Flocalnow.com%25252Fchannels%25252Fcbs-news-chicago-hyperlocal&ua=Mozilla%2F5.0%20%28Windows%20NT%2010.0%3B%20Win64%3B%20x64%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F122.0.0.0%20Safari%2F537.36&width=1920&app_version=0.0.0","behaviorHints":{"notWebReady":true},"name":"HD","description":"LN"}]}

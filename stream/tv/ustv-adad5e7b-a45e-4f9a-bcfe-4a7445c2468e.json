@@ -1,12 +1,1 @@
-{
-  "streams": [
-    {
-      "url": "https://tvpass.org/live/TeenNickEast/sd",
-      "behaviorHints": {
-        "notWebReady": true
-      },
-      "name": "SD",
-      "description": "TP"
-    }
-  ]
-}
+{"streams":[{"url":"https://tvpass.org/live/TeenNickEast/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"}]}
