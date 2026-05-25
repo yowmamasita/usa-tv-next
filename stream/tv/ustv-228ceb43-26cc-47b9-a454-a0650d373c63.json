@@ -1,1 +1,20 @@
-{"streams":[{"url":"https://a1xs.vip/300002","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"AX"},{"url":"http://23.237.104.106:8080/USA_TRUTV/index.m3u8","behaviorHints":{"notWebReady":true},"name":"HD","description":"MJE"},{"url":"https://streamer1.nexgen.bz/TRUTV/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"STMR"},{"url":"https://tvpass.org/live/truTVEast/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"},{"url":"https://turnerlive.warnermediacdn.com/hls/live/2023176/trueast/slate/VIDEO_0_3564000.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"WB (US-only)"}]}
+{
+  "streams": [
+    {
+      "url": "http://23.237.104.106:8080/USA_TRUTV/index.m3u8",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "HD",
+      "description": "MJE"
+    },
+    {
+      "url": "https://tvpass.org/live/truTVEast/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    }
+  ]
+}

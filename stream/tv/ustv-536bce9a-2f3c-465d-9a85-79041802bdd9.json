@@ -1,1 +1,20 @@
-{"streams":[{"url":"https://fl7.moveonjoy.com/HLN/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"http://23.237.104.106:8080/USA_HLN/index.m3u8","behaviorHints":{"notWebReady":true},"name":"HD","description":"MJE"},{"url":"https://tvpass.org/live/HLN/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"},{"url":"https://turnerlive.warnermediacdn.com/hls/live/586496/cnngo/hln/VIDEO_0_3564000.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"WB (US-only)"}]}
+{
+  "streams": [
+    {
+      "url": "http://23.237.104.106:8080/USA_HLN/index.m3u8",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "HD",
+      "description": "MJE"
+    },
+    {
+      "url": "https://tvpass.org/live/HLN/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    }
+  ]
+}

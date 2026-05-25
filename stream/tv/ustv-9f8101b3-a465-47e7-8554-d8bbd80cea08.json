@@ -1,1 +1,20 @@
-{"streams":[{"url":"https://fl7.moveonjoy.com/BOOMERANG/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"http://23.237.104.106:8080/USA_BOOMERANG/index.m3u8","behaviorHints":{"notWebReady":true},"name":"HD","description":"MJE"},{"url":"https://tvpass.org/live/Boomerang/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"}]}
+{
+  "streams": [
+    {
+      "url": "http://23.237.104.106:8080/USA_BOOMERANG/index.m3u8",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "HD",
+      "description": "MJE"
+    },
+    {
+      "url": "https://tvpass.org/live/Boomerang/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    }
+  ]
+}

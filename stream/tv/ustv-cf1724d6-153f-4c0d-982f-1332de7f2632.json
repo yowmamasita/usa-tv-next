@@ -1,1 +1,12 @@
-{"streams":[{"url":"https://a1xs.vip/300001","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"AX"},{"url":"https://streamer1.nexgen.bz/TNT/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"STMR"},{"url":"https://tvpass.org/live/TNTEast/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"},{"url":"https://turnerlive.warnermediacdn.com/hls/live/2023168/tnteast/slate/VIDEO_0_3564000.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"WB (US-only)"}]}
+{
+  "streams": [
+    {
+      "url": "https://tvpass.org/live/TNTEast/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    }
+  ]
+}

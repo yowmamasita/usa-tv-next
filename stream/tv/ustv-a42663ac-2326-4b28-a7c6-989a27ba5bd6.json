@@ -1,1 +1,20 @@
-{"streams":[{"url":"https://a1xs.vip/300006","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"AX"},{"url":"https://fl61.moveonjoy.com/FXX/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"https://fl1.moveonjoy.com/FXX/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"http://23.237.104.106:8080/USA_FXX/index.m3u8","behaviorHints":{"notWebReady":true},"name":"HD","description":"MJE"},{"url":"https://tvpass.org/live/FXXEast/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"}]}
+{
+  "streams": [
+    {
+      "url": "http://23.237.104.106:8080/USA_FXX/index.m3u8",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "HD",
+      "description": "MJE"
+    },
+    {
+      "url": "https://tvpass.org/live/FXXEast/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    }
+  ]
+}

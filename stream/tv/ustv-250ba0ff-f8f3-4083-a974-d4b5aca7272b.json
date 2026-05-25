@@ -1,1 +1,12 @@
-{"streams":[{"url":"https://a1xs.vip/40000012","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"AX"},{"url":"https://fl1.moveonjoy.com/ESPN_2/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"https://epg.provider.plex.tv/library/parts/5e20b730f2f8d5003d739db7-62ee72cc271f393d2d9f7098/?X-Plex-Token=zk98vyiEGWf12vQXDDEH","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"PLX"},{"url":"https://jmp2.uk/stvp-USBC600001QL","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"SMG"},{"url":"https://tvpass.org/live/ESPN2/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"}]}
+{
+  "streams": [
+    {
+      "url": "https://tvpass.org/live/ESPN2/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    }
+  ]
+}

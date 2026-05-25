@@ -1,1 +1,28 @@
-{"streams":[{"url":"https://fl31.moveonjoy.com/BBC_WORLD_NEWS/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"https://epg.provider.plex.tv/library/parts/5e20b730f2f8d5003d739db7-646fab0e43d6d6838db81a6a/?X-Plex-Token=zk98vyiEGWf12vQXDDEH","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"PLX"},{"url":"https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/65d92a8c8b24c80008e285c0/master.m3u8?advertisingId=&appName=web&appVersion=9.1.2&deviceDNT=0&deviceId=a871f05c-5967-4b2c-b270-8192e8c7fa64&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=126.0.0&sid=c79aae35-445f-4cd8-a2f0-6720d407d6d3&userId=&serverSideAds=true","behaviorHints":{"notWebReady":true},"name":"HD","description":"PTV"},{"url":"https://jmp2.uk/stvp-US4000033L","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"SMG"},{"url":"https://tvpass.org/live/BBCWorldNewsNorthAmerica/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"},{"url":"https://d3pxo1qcgzxtxs.cloudfront.net/10005/99951298/hls/playlist.m3u8?ads.xumo_channelId=99951298&ads.channelId=99951298&ads.csid=xumo_web_AMCBBCNews_ssai&ads._fw_is_lat=0&ads._fw_us_privacy=&ads._fw_coppa=0&ads._fw_did=:eff1be3e-98af-4057-9a25-8db7fa879e43&ads._fw_content_category=&ads._fw_content_language=en&ads._fw_content_genre=&ads._fw_content_rating=&ads.xumo_contentId=4023&ads.xumo_contentName=AMCBBCNews&ads.xumo_providerId=4023&ads.xumo_providerName=AMCBBCNews&ads._fw_deviceMake=GitHubAction&ads._fw_device_model=PythonScript&ads._fw_deviceType=3-Connected_TV&ads.xumo_platform=web&ads.appVersion=1.0.0&ads._fw_app_bundle=web.xumo.com&ads._fw_app_store_url=","behaviorHints":{"notWebReady":true},"name":"HD","description":"XM"}]}
+{
+  "streams": [
+    {
+      "url": "https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/65d92a8c8b24c80008e285c0/master.m3u8?advertisingId=&appName=web&appVersion=9.1.2&deviceDNT=0&deviceId=a871f05c-5967-4b2c-b270-8192e8c7fa64&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=126.0.0&sid=c79aae35-445f-4cd8-a2f0-6720d407d6d3&userId=&serverSideAds=true",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "HD",
+      "description": "PTV"
+    },
+    {
+      "url": "https://tvpass.org/live/BBCWorldNewsNorthAmerica/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    },
+    {
+      "url": "https://d3pxo1qcgzxtxs.cloudfront.net/10005/99951298/hls/playlist.m3u8?ads.xumo_channelId=99951298&ads.channelId=99951298&ads.csid=xumo_web_AMCBBCNews_ssai&ads._fw_is_lat=0&ads._fw_us_privacy=&ads._fw_coppa=0&ads._fw_did=:eff1be3e-98af-4057-9a25-8db7fa879e43&ads._fw_content_category=&ads._fw_content_language=en&ads._fw_content_genre=&ads._fw_content_rating=&ads.xumo_contentId=4023&ads.xumo_contentName=AMCBBCNews&ads.xumo_providerId=4023&ads.xumo_providerName=AMCBBCNews&ads._fw_deviceMake=GitHubAction&ads._fw_device_model=PythonScript&ads._fw_deviceType=3-Connected_TV&ads.xumo_platform=web&ads.appVersion=1.0.0&ads._fw_app_bundle=web.xumo.com&ads._fw_app_store_url=",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "HD",
+      "description": "XM"
+    }
+  ]
+}

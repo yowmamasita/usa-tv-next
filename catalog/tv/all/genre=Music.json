@@ -1,1 +1,211 @@
-{"metas":[{"id":"ustv-950f4f62-ed89-4d64-8628-da23099489fc","tvgId":null,"name":"Fuse","country":"USA","countryCode":"us","genre":"Music","logo":"https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/logos/usa/fuse-us.png","time":null,"type":"tv","poster":"https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/posters/usa/fuse-us.png","genres":["Music"],"streams":[{"url":"https://fl1.moveonjoy.com/FUSE/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"https://streamer1.nexgen.bz/FUSE/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"STMR"},{"url":"https://tvpass.org/live/FuseEast/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"}]},{"id":"ustv-7ff076f8-51df-4b5e-9a61-d3896b534034","tvgId":"","name":"MTV","country":"USA","countryCode":"us","genre":"Music","logo":"https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/logos/usa/mtv-us.png","time":null,"type":"tv","poster":"https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/posters/usa/mtv-us.png","genres":["Music"],"streams":[{"url":"https://fl1.moveonjoy.com/MTV_LIVE/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"https://fl1.moveonjoy.com/MTV/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"http://23.237.104.106:8080/USA_MTV_LIVE/index.m3u8","behaviorHints":{"notWebReady":true},"name":"HD","description":"MJE"},{"url":"http://23.237.104.106:8080/USA_MTV/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJE"},{"url":"https://streamer1.nexgen.bz/MTV/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"STMR"},{"url":"https://tvpass.org/live/MTVEast/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"},{"url":"https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5ca672f515a62078d2ec0ad2/master.m3u8?advertisingId=&appName=web&appStoreUrl=&appVersion=DNT&app_name=&architecture=&buildVersion=&deviceDNT=0&deviceId=5ca672f515a62078d2ec0ad2&deviceLat=&deviceLon=&deviceMake=web&deviceModel=web&deviceType=web&deviceVersion=DNT&includeExtendedEvents=false&marketingRegion=US&serverSideAds=false&sid=178&terminate=false&userId=","behaviorHints":{"notWebReady":true},"name":"SD","description":"HV:SERVICE-STIT"},{"url":"https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5ca6899a37b88b269472ea4b/master.m3u8?advertisingId=&appName=web&appStoreUrl=&appVersion=DNT&app_name=&architecture=&buildVersion=&deviceDNT=0&deviceId=5ca6899a37b88b269472ea4b&deviceLat=&deviceLon=&deviceMake=web&deviceModel=web&deviceType=web&deviceVersion=DNT&includeExtendedEvents=false&marketingRegion=US&serverSideAds=false&sid=330&terminate=false&userId=","behaviorHints":{"notWebReady":true},"name":"SD","description":"HV:SERVICE-STIT"}]},{"id":"ustv-9834d249-1dd3-4c62-b56f-9e3bfa1ede7c","tvgId":null,"name":"MTV Classic","country":"USA","countryCode":"us","genre":"Music","logo":"https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/logos/usa/mtv-classic-us.png","time":null,"type":"tv","poster":"https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/posters/usa/mtv-classic-us.png","genres":["Music"],"streams":[{"url":"https://fl1.moveonjoy.com/MTV_CLASSIC/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f779951372da90007fd45e8/master.m3u8?advertisingId=&appName=web&appVersion=9.1.2&deviceDNT=0&deviceId=c07aa5dc-bcce-40d3-82db-21dfc0bf34c1&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=126.0.0&sid=bfb96018-169f-4f7b-be1e-6df38a6e50ff&userId=&serverSideAds=true","behaviorHints":{"notWebReady":true},"name":"HD","description":"PTV"}]},{"id":"ustv-f66d9981-63b5-4f56-ac63-1ca78a4c32ca","tvgId":null,"name":"MTV2","country":"USA","countryCode":"us","genre":"Music","logo":"https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/logos/usa/mtv-2-us.png","time":null,"type":"tv","poster":"https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/posters/usa/mtv-2-us.png","genres":["Music"],"streams":[{"url":"https://tvpass.org/live/mtv-2-east/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"}]},{"id":"ustv-52d5839a-8384-4c34-bf4d-08aede31b252","tvgId":null,"name":"Nick Music","country":"USA","countryCode":"us","genre":"Music","logo":"https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/logos/usa/nick-music-us.png","time":null,"type":"tv","poster":"https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/posters/usa/nick-music-us.png","genres":["Music"],"streams":[{"url":"https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5873fc21cad696fb37aa9054/master.m3u8?advertisingId=&appName=web&appVersion=9.1.2&deviceDNT=0&deviceId=32a5b717-c7ab-4bf3-ad46-de45ab7efe2b&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=126.0.0&sid=9afd5b95-0840-47c6-8824-d9d574212702&userId=&serverSideAds=true","behaviorHints":{"notWebReady":true},"name":"HD","description":"PTV"}]},{"id":"ustv-844255ca-6732-4e58-8340-88bfef9976f5","tvgId":null,"name":"Revolt","country":"USA","countryCode":"us","genre":"Music","logo":"https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/logos/usa/revolt-us.png","time":null,"type":"tv","poster":"https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/posters/usa/revolt-us.png","genres":["Music"],"streams":[{"url":"https://fl1.moveonjoy.com/REVOLT/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"http://23.237.104.106:8080/USA_REVOLT/index.m3u8","behaviorHints":{"notWebReady":true},"name":"HD","description":"MJE"}]},{"id":"ustv-90079556-db40-4744-ba02-3336c9179ad5","tvgId":"","name":"VH1","country":"USA","countryCode":"us","genre":"Music","logo":"https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/logos/usa/vh1-us.png","time":null,"type":"tv","poster":"https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/posters/usa/vh1-us.png","genres":["Music"],"streams":[{"url":"https://fl1.moveonjoy.com/VH1/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"http://23.237.104.106:8080/USA_VH1/index.m3u8","behaviorHints":{"notWebReady":true},"name":"HD","description":"MJE"},{"url":"https://streamer1.nexgen.bz/VH1/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"STMR"},{"url":"https://tvpass.org/live/VH1East/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"}]}]}
+{
+  "metas": [
+    {
+      "id": "ustv-950f4f62-ed89-4d64-8628-da23099489fc",
+      "tvgId": null,
+      "name": "Fuse",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "Music",
+      "logo": "https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/logos/usa/fuse-us.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/posters/usa/fuse-us.png",
+      "genres": [
+        "Music"
+      ],
+      "streams": [
+        {
+          "url": "https://tvpass.org/live/FuseEast/sd",
+          "behaviorHints": {
+            "notWebReady": true
+          },
+          "name": "SD",
+          "description": "TP"
+        }
+      ]
+    },
+    {
+      "id": "ustv-7ff076f8-51df-4b5e-9a61-d3896b534034",
+      "tvgId": "",
+      "name": "MTV",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "Music",
+      "logo": "https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/logos/usa/mtv-us.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/posters/usa/mtv-us.png",
+      "genres": [
+        "Music"
+      ],
+      "streams": [
+        {
+          "url": "http://23.237.104.106:8080/USA_MTV_LIVE/index.m3u8",
+          "behaviorHints": {
+            "notWebReady": true
+          },
+          "name": "HD",
+          "description": "MJE"
+        },
+        {
+          "url": "https://tvpass.org/live/MTVEast/sd",
+          "behaviorHints": {
+            "notWebReady": true
+          },
+          "name": "SD",
+          "description": "TP"
+        },
+        {
+          "url": "https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5ca672f515a62078d2ec0ad2/master.m3u8?advertisingId=&appName=web&appStoreUrl=&appVersion=DNT&app_name=&architecture=&buildVersion=&deviceDNT=0&deviceId=5ca672f515a62078d2ec0ad2&deviceLat=&deviceLon=&deviceMake=web&deviceModel=web&deviceType=web&deviceVersion=DNT&includeExtendedEvents=false&marketingRegion=US&serverSideAds=false&sid=178&terminate=false&userId=",
+          "behaviorHints": {
+            "notWebReady": true
+          },
+          "name": "SD",
+          "description": "HV:SERVICE-STIT"
+        },
+        {
+          "url": "https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5ca6899a37b88b269472ea4b/master.m3u8?advertisingId=&appName=web&appStoreUrl=&appVersion=DNT&app_name=&architecture=&buildVersion=&deviceDNT=0&deviceId=5ca6899a37b88b269472ea4b&deviceLat=&deviceLon=&deviceMake=web&deviceModel=web&deviceType=web&deviceVersion=DNT&includeExtendedEvents=false&marketingRegion=US&serverSideAds=false&sid=330&terminate=false&userId=",
+          "behaviorHints": {
+            "notWebReady": true
+          },
+          "name": "SD",
+          "description": "HV:SERVICE-STIT"
+        }
+      ]
+    },
+    {
+      "id": "ustv-9834d249-1dd3-4c62-b56f-9e3bfa1ede7c",
+      "tvgId": null,
+      "name": "MTV Classic",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "Music",
+      "logo": "https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/logos/usa/mtv-classic-us.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/posters/usa/mtv-classic-us.png",
+      "genres": [
+        "Music"
+      ],
+      "streams": [
+        {
+          "url": "https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f779951372da90007fd45e8/master.m3u8?advertisingId=&appName=web&appVersion=9.1.2&deviceDNT=0&deviceId=c07aa5dc-bcce-40d3-82db-21dfc0bf34c1&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=126.0.0&sid=bfb96018-169f-4f7b-be1e-6df38a6e50ff&userId=&serverSideAds=true",
+          "behaviorHints": {
+            "notWebReady": true
+          },
+          "name": "HD",
+          "description": "PTV"
+        }
+      ]
+    },
+    {
+      "id": "ustv-f66d9981-63b5-4f56-ac63-1ca78a4c32ca",
+      "tvgId": null,
+      "name": "MTV2",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "Music",
+      "logo": "https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/logos/usa/mtv-2-us.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/posters/usa/mtv-2-us.png",
+      "genres": [
+        "Music"
+      ],
+      "streams": [
+        {
+          "url": "https://tvpass.org/live/mtv-2-east/sd",
+          "behaviorHints": {
+            "notWebReady": true
+          },
+          "name": "SD",
+          "description": "TP"
+        }
+      ]
+    },
+    {
+      "id": "ustv-52d5839a-8384-4c34-bf4d-08aede31b252",
+      "tvgId": null,
+      "name": "Nick Music",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "Music",
+      "logo": "https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/logos/usa/nick-music-us.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/posters/usa/nick-music-us.png",
+      "genres": [
+        "Music"
+      ],
+      "streams": [
+        {
+          "url": "https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5873fc21cad696fb37aa9054/master.m3u8?advertisingId=&appName=web&appVersion=9.1.2&deviceDNT=0&deviceId=32a5b717-c7ab-4bf3-ad46-de45ab7efe2b&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=126.0.0&sid=9afd5b95-0840-47c6-8824-d9d574212702&userId=&serverSideAds=true",
+          "behaviorHints": {
+            "notWebReady": true
+          },
+          "name": "HD",
+          "description": "PTV"
+        }
+      ]
+    },
+    {
+      "id": "ustv-844255ca-6732-4e58-8340-88bfef9976f5",
+      "tvgId": null,
+      "name": "Revolt",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "Music",
+      "logo": "https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/logos/usa/revolt-us.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/posters/usa/revolt-us.png",
+      "genres": [
+        "Music"
+      ],
+      "streams": [
+        {
+          "url": "http://23.237.104.106:8080/USA_REVOLT/index.m3u8",
+          "behaviorHints": {
+            "notWebReady": true
+          },
+          "name": "HD",
+          "description": "MJE"
+        }
+      ]
+    },
+    {
+      "id": "ustv-90079556-db40-4744-ba02-3336c9179ad5",
+      "tvgId": "",
+      "name": "VH1",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "Music",
+      "logo": "https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/logos/usa/vh1-us.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://raw.githubusercontent.com/yowmamasita/usa-tv-next/main/public/posters/usa/vh1-us.png",
+      "genres": [
+        "Music"
+      ],
+      "streams": [
+        {
+          "url": "http://23.237.104.106:8080/USA_VH1/index.m3u8",
+          "behaviorHints": {
+            "notWebReady": true
+          },
+          "name": "HD",
+          "description": "MJE"
+        },
+        {
+          "url": "https://tvpass.org/live/VH1East/sd",
+          "behaviorHints": {
+            "notWebReady": true
+          },
+          "name": "SD",
+          "description": "TP"
+        }
+      ]
+    }
+  ]
+}

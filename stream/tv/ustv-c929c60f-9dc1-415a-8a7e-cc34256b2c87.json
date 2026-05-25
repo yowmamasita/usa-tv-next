@@ -1,1 +1,12 @@
-{"streams":[{"url":"https://fl1.moveonjoy.com/HGTV/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"https://streamer1.nexgen.bz/HGTV/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"STMR"},{"url":"https://tvpass.org/live/HGTVEast/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"}]}
+{
+  "streams": [
+    {
+      "url": "https://tvpass.org/live/HGTVEast/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    }
+  ]
+}

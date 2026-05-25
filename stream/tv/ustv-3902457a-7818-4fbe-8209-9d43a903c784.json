@@ -1,1 +1,20 @@
-{"streams":[{"url":"https://a1xs.vip/300014","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"AX"},{"url":"https://cvtv.cvalley.net/hls/WDAFFox/WDAFFox.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"CV"},{"url":"https://cvtv.cvalley.net/hls/KYOUFOX/KYOUFOX.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"CV"},{"url":"https://cvtv.cvalley.net/hls/KQFXFOX/KQFXFOX.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"CV"},{"url":"https://tvpass.org/live/fox-kttv-los-angeles-ca/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"},{"url":"https://tvpass.org/live/WNYWDT1/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"}]}
+{
+  "streams": [
+    {
+      "url": "https://tvpass.org/live/fox-kttv-los-angeles-ca/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    },
+    {
+      "url": "https://tvpass.org/live/WNYWDT1/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    }
+  ]
+}

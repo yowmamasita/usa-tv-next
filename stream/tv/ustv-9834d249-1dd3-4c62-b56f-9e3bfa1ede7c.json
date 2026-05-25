@@ -1,1 +1,12 @@
-{"streams":[{"url":"https://fl1.moveonjoy.com/MTV_CLASSIC/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f779951372da90007fd45e8/master.m3u8?advertisingId=&appName=web&appVersion=9.1.2&deviceDNT=0&deviceId=c07aa5dc-bcce-40d3-82db-21dfc0bf34c1&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=126.0.0&sid=bfb96018-169f-4f7b-be1e-6df38a6e50ff&userId=&serverSideAds=true","behaviorHints":{"notWebReady":true},"name":"HD","description":"PTV"}]}
+{
+  "streams": [
+    {
+      "url": "https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5f779951372da90007fd45e8/master.m3u8?advertisingId=&appName=web&appVersion=9.1.2&deviceDNT=0&deviceId=c07aa5dc-bcce-40d3-82db-21dfc0bf34c1&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=126.0.0&sid=bfb96018-169f-4f7b-be1e-6df38a6e50ff&userId=&serverSideAds=true",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "HD",
+      "description": "PTV"
+    }
+  ]
+}

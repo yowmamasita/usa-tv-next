@@ -1,1 +1,36 @@
-{"streams":[{"url":"https://a1xs.vip/40000045","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"AX"},{"url":"https://fl1.moveonjoy.com/SNY/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"MJ"},{"url":"https://tvpass.org/live/sny-sportsnet-new-york-comcast/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"},{"url":"https://tvpass.org/live/sportsnet-east/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"},{"url":"https://tvpass.org/live/sportsnet-pacific/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"},{"url":"https://tvpass.org/live/sportsnet-west/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"}]}
+{
+  "streams": [
+    {
+      "url": "https://tvpass.org/live/sny-sportsnet-new-york-comcast/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    },
+    {
+      "url": "https://tvpass.org/live/sportsnet-east/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    },
+    {
+      "url": "https://tvpass.org/live/sportsnet-pacific/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    },
+    {
+      "url": "https://tvpass.org/live/sportsnet-west/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    }
+  ]
+}

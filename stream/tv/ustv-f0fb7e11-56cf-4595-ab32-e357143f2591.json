@@ -1,1 +1,20 @@
-{"streams":[{"url":"https://epg.provider.plex.tv/library/parts/5e20b730f2f8d5003d739db7-5eea605574085f0040ddc782/?X-Plex-Token=zk98vyiEGWf12vQXDDEH","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"PLX"},{"url":"https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5e54187aae660e00093561d6/master.m3u8?advertisingId=&appName=web&appVersion=9.1.2&deviceDNT=0&deviceId=e7a86046-4f89-44a5-81b6-35844f306dc5&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=126.0.0&sid=aff1eac3-6f3e-4577-9252-caca00780f27&userId=&serverSideAds=true","behaviorHints":{"notWebReady":true},"name":"HD","description":"PTV"},{"url":"https://jmp2.uk/stvp-USAJ3400012FA","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"SMG"},{"url":"https://streamer1.nexgen.bz/GSN/index.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"STMR"},{"url":"https://live-manifest.production-public.tubi.io/live/37d25c4d-ae6a-4182-a830-12e09479ad85/playlist.m3u8","behaviorHints":{"notWebReady":true},"name":"[DEAD] HD","description":"TB"},{"url":"https://tvpass.org/live/game-show-network-east/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"}]}
+{
+  "streams": [
+    {
+      "url": "https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5e54187aae660e00093561d6/master.m3u8?advertisingId=&appName=web&appVersion=9.1.2&deviceDNT=0&deviceId=e7a86046-4f89-44a5-81b6-35844f306dc5&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=126.0.0&sid=aff1eac3-6f3e-4577-9252-caca00780f27&userId=&serverSideAds=true",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "HD",
+      "description": "PTV"
+    },
+    {
+      "url": "https://tvpass.org/live/game-show-network-east/sd",
+      "behaviorHints": {
+        "notWebReady": true
+      },
+      "name": "SD",
+      "description": "TP"
+    }
+  ]
+}
