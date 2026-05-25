@@ -1,0 +1,148 @@
+{
+  "metas": [
+    {
+      "id": "ustv-d64a2ed0-b8db-47ff-852c-0e2443886b5d",
+      "tvgId": "",
+      "name": "CGTN",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "International",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/CGTN-America_Logo.png/960px-CGTN-America_Logo.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/CGTN-America_Logo.png/960px-CGTN-America_Logo.png",
+      "genres": [
+        "International"
+      ],
+      "streams": []
+    },
+    {
+      "id": "ustv-2b2958b5-64c2-4c2e-af7c-4181947ece34",
+      "tvgId": "",
+      "name": "TV5Monde",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "International",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Logo_TV5_Monde_-_2021.svg/960px-Logo_TV5_Monde_-_2021.svg.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/Logo_TV5_Monde_-_2021.svg/960px-Logo_TV5_Monde_-_2021.svg.png",
+      "genres": [
+        "International"
+      ],
+      "streams": []
+    },
+    {
+      "id": "ustv-359601b4-25eb-4295-b920-86862c18ae07",
+      "tvgId": "",
+      "name": "RAI Italia",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "International",
+      "logo": "https://i.imgur.com/1nN4rEP.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://i.imgur.com/1nN4rEP.png",
+      "genres": [
+        "International"
+      ],
+      "streams": []
+    },
+    {
+      "id": "ustv-2300ad5e-6464-4224-a80e-60c1ee533dfb",
+      "tvgId": "",
+      "name": "KBS World",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "International",
+      "logo": "https://i.imgur.com/F50NjOw.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://i.imgur.com/F50NjOw.png",
+      "genres": [
+        "International"
+      ],
+      "streams": []
+    },
+    {
+      "id": "ustv-a5ea9255-eb43-4e32-8e3a-010d8095fbc1",
+      "tvgId": "",
+      "name": "ABS-CBN TFC",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "International",
+      "logo": "",
+      "time": null,
+      "type": "tv",
+      "poster": "",
+      "genres": [
+        "International"
+      ],
+      "streams": []
+    },
+    {
+      "id": "ustv-acf6b3bd-4454-4129-a67d-22c0d760505f",
+      "tvgId": "",
+      "name": "Zee TV",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "International",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Zee_TV_Logo_2025.svg/960px-Zee_TV_Logo_2025.svg.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a2/Zee_TV_Logo_2025.svg/960px-Zee_TV_Logo_2025.svg.png",
+      "genres": [
+        "International"
+      ],
+      "streams": []
+    },
+    {
+      "id": "ustv-6b6000e5-4042-4f38-a048-e101d73b9971",
+      "tvgId": "",
+      "name": "ARY Digital",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "International",
+      "logo": "https://i.imgur.com/TVP7g03.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://i.imgur.com/TVP7g03.png",
+      "genres": [
+        "International"
+      ],
+      "streams": []
+    },
+    {
+      "id": "ustv-b63ec158-32f9-46de-a5ab-61d80d636233",
+      "tvgId": "",
+      "name": "Sky News International",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "International",
+      "logo": "https://d2n0069hmnqmmx.cloudfront.net/epgdata/1.0/newchanlogos/512/512/skychb1404.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://d2n0069hmnqmmx.cloudfront.net/epgdata/1.0/newchanlogos/512/512/skychb1404.png",
+      "genres": [
+        "International"
+      ],
+      "streams": []
+    },
+    {
+      "id": "ustv-7a625c83-dcd5-40db-8f17-a00d33e648d1",
+      "tvgId": "",
+      "name": "RT",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "International",
+      "logo": "",
+      "time": null,
+      "type": "tv",
+      "poster": "",
+      "genres": [
+        "International"
+      ],
+      "streams": []
+    }
+  ]
+}

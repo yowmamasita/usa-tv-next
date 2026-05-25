@@ -1,0 +1,100 @@
+{
+  "metas": [
+    {
+      "id": "ustv-9fcf2dba-5a39-456b-a7d5-1ae14b231e9e",
+      "tvgId": "",
+      "name": "HSN",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "Shopping",
+      "logo": "https://i.imgur.com/rnZN7rD.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://i.imgur.com/rnZN7rD.png",
+      "genres": [
+        "Shopping"
+      ],
+      "streams": []
+    },
+    {
+      "id": "ustv-2a2879f7-b58d-487e-a891-20c798e8c0c8",
+      "tvgId": "",
+      "name": "QVC2",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "Shopping",
+      "logo": "https://i.imgur.com/NxbDjfI.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://i.imgur.com/NxbDjfI.png",
+      "genres": [
+        "Shopping"
+      ],
+      "streams": []
+    },
+    {
+      "id": "ustv-b1ecf1f4-98cc-4488-8e5a-d5e3e5965b57",
+      "tvgId": "",
+      "name": "QVC3",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "Shopping",
+      "logo": "https://i.imgur.com/edswdOO.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://i.imgur.com/edswdOO.png",
+      "genres": [
+        "Shopping"
+      ],
+      "streams": []
+    },
+    {
+      "id": "ustv-3c7f526c-7c88-4957-b8b0-4616b15b697c",
+      "tvgId": "",
+      "name": "HSN2",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "Shopping",
+      "logo": "https://i.imgur.com/R6oC2A3.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://i.imgur.com/R6oC2A3.png",
+      "genres": [
+        "Shopping"
+      ],
+      "streams": []
+    },
+    {
+      "id": "ustv-857dbf36-6df5-45ad-82d7-e95ccb6fb7ef",
+      "tvgId": "",
+      "name": "ShopHQ",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "Shopping",
+      "logo": "https://upload.wikimedia.org/wikipedia/commons/6/69/ShopHQ_2019_Logo.png",
+      "time": null,
+      "type": "tv",
+      "poster": "https://upload.wikimedia.org/wikipedia/commons/6/69/ShopHQ_2019_Logo.png",
+      "genres": [
+        "Shopping"
+      ],
+      "streams": []
+    },
+    {
+      "id": "ustv-e4eb63a0-8615-47fa-9e9a-0050f16e1b15",
+      "tvgId": "",
+      "name": "Jewelry Television",
+      "country": "USA",
+      "countryCode": "us",
+      "genre": "Shopping",
+      "logo": "",
+      "time": null,
+      "type": "tv",
+      "poster": "",
+      "genres": [
+        "Shopping"
+      ],
+      "streams": []
+    }
+  ]
+}
