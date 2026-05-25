@@ -6,7 +6,7 @@ from urllib.parse import urljoin
 import aiohttp
 
 from harvester.models import ParsedStream, SourceConfig
-from harvester.parser import extract_m3u_urls, extract_xtream_urls, parse_m3u
+from harvester.parser import extract_m3u_urls, parse_m3u
 from harvester.sources.base import BaseSource
 
 HREF_RE = re.compile(r'href=["\']([^"\']*\.m3u8?(?:\?[^"\']*)?)["\']', re.IGNORECASE)
@@ -35,19 +35,12 @@ class WebsiteSource(BaseSource):
         streams.extend(self._scrape_page(html, source_id))
 
         m3u_urls = self._collect_m3u_urls(html)
-        xtream_urls = extract_xtream_urls(html)
 
         for m3u_url in m3u_urls:
             if m3u_url.startswith("http"):
                 content = await self.fetch_url(session, m3u_url)
                 if content:
                     streams.extend(parse_m3u(content, source_url=m3u_url, source_id=source_id))
-
-        for xtream_url in xtream_urls[:3]:
-            content = await self.fetch_url(session, xtream_url)
-            if content and "#EXTINF" in content:
-                parsed = parse_m3u(content, source_url=xtream_url, source_id=source_id)
-                streams.extend(parsed[:5000])
 
         # Deep scrape: follow article links on blog index pages and scrape subpages
         if strategy == "deep_scrape":
@@ -58,17 +51,11 @@ class WebsiteSource(BaseSource):
                     continue
                 streams.extend(self._scrape_page(sub_html, source_id))
                 sub_m3u_urls = self._collect_m3u_urls(sub_html)
-                sub_xtream_urls = extract_xtream_urls(sub_html)
                 for m3u_url in sub_m3u_urls:
                     if m3u_url.startswith("http"):
                         content = await self.fetch_url(session, m3u_url)
                         if content:
                             streams.extend(parse_m3u(content, source_url=m3u_url, source_id=source_id))
-                for xtream_url in sub_xtream_urls[:2]:
-                    content = await self.fetch_url(session, xtream_url)
-                    if content and "#EXTINF" in content:
-                        parsed = parse_m3u(content, source_url=xtream_url, source_id=source_id)
-                        streams.extend(parsed[:5000])
 
         return streams
 

@@ -7,6 +7,11 @@ from harvester.models import ParsedStream
 
 EXTINF_ATTRS = re.compile(r'([a-zA-Z_-]+)="([^"]*)"')
 STREAM_URL_RE = re.compile(r"^https?://|^rtsp://|^rtmp://", re.IGNORECASE)
+XTREAM_URL_RE = re.compile(
+    r"https?://[^/]+(?::\d+)?/[^/]+/[^/]+/\d+|"
+    r"https?://[^/]+(?::\d+)?/(?:get|player_api)\.php\?username=",
+    re.IGNORECASE,
+)
 
 
 def parse_m3u(content: str, source_url: str = "", source_id: str = "") -> list[ParsedStream]:
@@ -38,6 +43,11 @@ def parse_m3u(content: str, source_url: str = "", source_id: str = "") -> list[P
         else:
             continue
 
+        if XTREAM_URL_RE.match(url):
+            current_attrs = {}
+            current_name = ""
+            continue
+
         streams.append(
             ParsedStream(
                 url=url,
@@ -58,20 +68,3 @@ def extract_m3u_urls(text: str) -> list[str]:
     return re.findall(r'https?://[^\s<>"\']+\.m3u8?(?:\?[^\s<>"\']*)?', text)
 
 
-def extract_xtream_urls(text: str) -> list[str]:
-    """Extract Xtream Codes URLs (get.php?username=X&password=Y) and build M3U download URLs."""
-    # Match get.php URLs with username and password params
-    xtream_re = re.compile(
-        r'(https?://[^/\s<>"\']+)/(?:get\.php|player_api\.php)\?'
-        r'username=([^&\s<>"\']+)&(?:amp;)?password=([^&\s<>"\']+)',
-        re.IGNORECASE,
-    )
-    urls: list[str] = []
-    seen: set[str] = set()
-    for m in xtream_re.finditer(text):
-        base, user, pwd = m.group(1), m.group(2), m.group(3)
-        xtream_m3u = f"{base}/get.php?username={user}&password={pwd}&type=m3u_plus&output=ts"
-        if xtream_m3u not in seen:
-            seen.add(xtream_m3u)
-            urls.append(xtream_m3u)
-    return urls

@@ -5,7 +5,7 @@ import re
 import aiohttp
 
 from harvester.models import ParsedStream
-from harvester.parser import extract_m3u_urls, extract_xtream_urls, parse_m3u
+from harvester.parser import extract_m3u_urls, parse_m3u
 from harvester.sources.base import BaseSource
 
 STREAM_URL_RE = re.compile(
@@ -46,15 +46,7 @@ class TelegramSource(BaseSource):
             if not any(s.url == url_found for s in streams):
                 streams.append(ParsedStream(url=url_found, source_id=source_id))
 
-        # 3. Xtream Codes URLs directly in messages (limit to 3 servers)
-        xtream_urls = extract_xtream_urls(html)
-        for xtream_m3u in xtream_urls[:3]:
-            content = await self.fetch_url(session, xtream_m3u)
-            if content and "#EXTINF" in content:
-                parsed = parse_m3u(content, source_url=xtream_m3u, source_id=source_id)
-                streams.extend(parsed[:5000])
-
-        # 4. Follow links to known IPTV sites (limit to 3 sites, 2 Xtream servers each)
+        # 3. Follow links to known IPTV sites (limit to 3 sites)
         external_urls: set[str] = set()
         for m in IPTV_SITE_RE.finditer(html):
             external_urls.add(m.group(0))
@@ -62,12 +54,6 @@ class TelegramSource(BaseSource):
             ext_html = await self.fetch_url(session, ext_url)
             if not ext_html:
                 continue
-            ext_xtream_urls = extract_xtream_urls(ext_html)
-            for xtream_m3u in ext_xtream_urls[:2]:
-                content = await self.fetch_url(session, xtream_m3u)
-                if content and "#EXTINF" in content:
-                    parsed = parse_m3u(content, source_url=xtream_m3u, source_id=source_id)
-                    streams.extend(parsed[:5000])
             ext_m3u_urls = extract_m3u_urls(ext_html)
             for m3u_url in ext_m3u_urls[:5]:
                 content = await self.fetch_url(session, m3u_url)
