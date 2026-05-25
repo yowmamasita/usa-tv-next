@@ -189,6 +189,29 @@ def report(input_file, working_only):
 
 
 @main.command()
+@click.option("--timeout", type=float, default=DEFAULT_TIMEOUT)
+@click.option("--concurrency", type=int, default=DEFAULT_TEST_CONCURRENCY)
+@click.option("--dry-run", is_flag=True, default=False, help="Test only, don't remove streams")
+def prune(timeout, concurrency, dry_run):
+    """Test all streams in the addon catalog and remove dead ones."""
+    from harvester.prune import prune as do_prune
+    stats = do_prune(timeout=timeout, concurrency=concurrency, dry_run=dry_run)
+    console.print(f"\n[bold]Tested: {stats['tested']}, Dead: {stats['dead']}, Removed: {stats['removed']}[/]")
+
+
+@main.command("inject")
+@click.option("--input", "input_file", type=str, default="data/test_results.json")
+def inject_cmd(input_file):
+    """Inject working streams from test results into catalog channels."""
+    from harvester.inject import inject
+    stats = inject(input_file)
+    console.print(f"Channels updated: {stats['channels_updated']}")
+    console.print(f"Streams added: {stats['streams_added']}")
+    console.print(f"Streams marked dead: {stats['streams_marked_dead']}")
+    console.print(f"Existing streams verified working: {stats['existing_verified']}")
+
+
+@main.command()
 @click.option("--sources-file", type=click.Path(exists=True), default=str(SOURCES_FILE))
 @click.option("--filter-type", type=click.Choice(["github", "website", "telegram", "paste", "direct"]))
 @click.option("--filter-name", type=str, default=None)
@@ -206,6 +229,13 @@ def run(sources_file, filter_type, filter_name, timeout, harvest_concurrency, te
     async def pipeline():
         streams = await _harvest(sources, harvest_concurrency, resume)
         results = await _test(streams, timeout, test_concurrency, resume)
+
+        from harvester.inject import inject
+        console.print("\n[bold]Injecting working streams into catalog...[/]")
+        stats = inject()
+        console.print(f"  Channels updated: {stats['channels_updated']}, Streams added: {stats['streams_added']}")
+        console.print(f"  Marked dead: {stats['streams_marked_dead']}, Verified working: {stats['existing_verified']}")
+
         rep = generate_report(results, sources_total=len(sources))
         save_report(rep)
         print_summary(rep)
