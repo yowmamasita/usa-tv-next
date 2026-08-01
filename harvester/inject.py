@@ -9,6 +9,7 @@ from urllib.parse import urlparse
 CATALOG_PATH = Path(__file__).resolve().parent.parent / "catalog" / "tv" / "all.json"
 META_DIR = Path(__file__).resolve().parent.parent / "meta" / "tv"
 GENRE_DIR = Path(__file__).resolve().parent.parent / "catalog" / "tv" / "all"
+STREAM_DIR = Path(__file__).resolve().parent.parent / "stream" / "tv"
 
 _NON_US_SUFFIXES = [
     "international", "italia", "indonesia", "finland", "arabic", "uk ",
@@ -162,6 +163,10 @@ def inject(test_results_path: str = "data/test_results.json") -> dict:
         meta_file = META_DIR / f"{ch['id']}.json"
         if meta_file.exists():
             json.dump({"meta": ch}, open(meta_file, "w"), separators=(",", ":"))
+
+        stream_file = STREAM_DIR / f"{ch['id']}.json"
+        if stream_file.exists():
+            json.dump({"streams": ch["streams"]}, open(stream_file, "w"), separators=(",", ":"))
 
     return stats
 

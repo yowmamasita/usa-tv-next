@@ -1,1 +1,1 @@
-{"streams":[{"url":"https://tvpass.org/live/TNTEast/sd","behaviorHints":{"notWebReady":true},"name":"SD","description":"TP"}]}
+{"streams":[{"url":"http://38.224.175.2:8000/play/a08p/index.m3u8","behaviorHints":{"notWebReady":true},"name":"FHD","description":"HV:38"},{"url":"http://181.78.0.107:8006/play/a07g/index.m3u8","behaviorHints":{"notWebReady":true},"name":"FHD","description":"HV:181"}]}
