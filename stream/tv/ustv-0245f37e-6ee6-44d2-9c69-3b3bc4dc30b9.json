@@ -1,1 +1,1 @@
-{"streams":[]}
+{"streams":[{"url":"http://23.237.104.106:8080/USA_NFL_NETWORK/index.m3u8","behaviorHints":{"notWebReady":true},"name":"HD","description":"MJE"},{"url":"https://service-stitcher.clusters.pluto.tv/stitch/hls/channel/5ced7d5df64be98e07ed47b6/master.m3u8?advertisingId=&appName=web&appVersion=9.1.2&deviceDNT=0&deviceId=62dac4b1-1ed7-4313-b3f1-cc44c2514921&deviceMake=Chrome&deviceModel=web&deviceType=web&deviceVersion=126.0.0&sid=a543c584-f663-450e-9ec2-3d0a32912f7c&userId=&serverSideAds=true","behaviorHints":{"notWebReady":true},"name":"HD","description":"PTV"}]}
