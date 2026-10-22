@@ -9,6 +9,7 @@ from urllib.parse import urlparse
 CATALOG_PATH = Path(__file__).resolve().parent.parent / "catalog" / "tv" / "all.json"
 META_DIR = Path(__file__).resolve().parent.parent / "meta" / "tv"
 GENRE_DIR = Path(__file__).resolve().parent.parent / "catalog" / "tv" / "all"
+STREAM_DIR = Path(__file__).resolve().parent.parent / "stream" / "tv"
 
 _NON_US_SUFFIXES = [
     "international", "italia", "indonesia", "finland", "arabic", "uk ",
@@ -112,6 +113,16 @@ def _match_streams(channels: list[dict], working: list[dict], catalog_norms: set
     return matches
 
 
+DEAD_HOSTS = ("tvpass.org",)  # NXDOMAIN since tvpass.org shut down (GitHub #3 #4 #5 #6)
+
+
+def merged_streams(served: list[dict], catalog: list[dict]) -> list[dict]:
+    """A stream file's streams with the catalog's added, minus any on a dead host."""
+    urls = {s.get("url") for s in served}
+    merged = served + [s for s in catalog if s.get("url") not in urls]
+    return [s for s in merged if not any(host in s.get("url", "") for host in DEAD_HOSTS)]
+
+
 def inject(test_results_path: str = "data/test_results.json") -> dict:
     results_path = Path(__file__).resolve().parent.parent / test_results_path
     results = json.load(open(results_path))
@@ -162,6 +173,12 @@ def inject(test_results_path: str = "data/test_results.json") -> dict:
         meta_file = META_DIR / f"{ch['id']}.json"
         if meta_file.exists():
             json.dump({"meta": ch}, open(meta_file, "w"), separators=(",", ":"))
+        # What Stremio plays: it gains the catalog's streams too, and keeps its own,
+        # since the catalog lacks live ones it has (GitHub #6).
+        stream_file = STREAM_DIR / f"{ch['id']}.json"
+        if stream_file.exists():
+            json.dump({"streams": merged_streams(json.load(open(stream_file))["streams"], ch["streams"])},
+                      open(stream_file, "w"), separators=(",", ":"))
 
     return stats
 
