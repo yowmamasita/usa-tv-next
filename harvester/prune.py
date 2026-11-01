@@ -12,6 +12,7 @@ from pathlib import Path
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, MofNCompleteColumn
 
+from harvester.inject import merged_streams
 from harvester.config import DEFAULT_TEST_CONCURRENCY, DEFAULT_TIMEOUT
 from harvester.models import ParsedStream, StreamStatus
 from harvester.tester import test_stream, test_streams
@@ -27,12 +28,18 @@ RETRY_DURATION = 600
 console = Console()
 
 
+def _served(ch_id: str) -> list[dict]:
+    path = STREAM_DIR / f"{ch_id}.json"
+    return json.loads(path.read_text())["streams"] if path.exists() else []
+
+
 def _collect_catalog_streams(catalog: dict) -> list[ParsedStream]:
+    """The catalog's streams and each channel's stream file's, which can hold live ones the catalog lacks."""
     seen: set[str] = set()
     streams: list[ParsedStream] = []
     for ch in catalog.get("metas", []):
         ch_name = ch.get("name", "")
-        for s in ch.get("streams", []):
+        for s in ch.get("streams", []) + _served(ch["id"]):
             url = s.get("url", "")
             if url and url not in seen:
                 seen.add(url)
@@ -106,6 +113,11 @@ async def _prune(timeout: float, concurrency: int, dry_run: bool) -> dict:
     dead_urls = failed_urls
     console.print(f"\n[bold]Final:[/] [green]{len(working_urls)} working[/], [red]{len(dead_urls)} dead[/]")
 
+    # Every probe failing means the network is down, not that the addon died.
+    if not working_urls:
+        console.print("[red]No stream is working; refusing to prune[/]")
+        return {"tested": len(results), "dead": len(dead_urls), "removed": 0}
+
     if dry_run:
         console.print("[yellow]Dry run — no files modified[/]")
         return {"tested": len(results), "dead": len(dead_urls), "removed": 0}
@@ -136,7 +148,8 @@ async def _prune(timeout: float, concurrency: int, dry_run: bool) -> dict:
 
         stream_file = STREAM_DIR / f"{ch['id']}.json"
         if stream_file.exists():
-            stream_file.write_text(json.dumps({"streams": ch["streams"]}, separators=(",", ":")))
+            served = _remove_dead_from_list(_served(ch["id"]), dead_urls)
+            stream_file.write_text(json.dumps({"streams": merged_streams(served, ch["streams"])}, separators=(",", ":")))
 
     console.print(f"[bold green]Removed {removed} dead streams from catalog[/]")
     return {"tested": len(results), "dead": len(dead_urls), "removed": removed}
