@@ -2,8 +2,8 @@
 it, and the catalog has always kept such streams (bozztv's Cartoon Network feed is one). FFmpeg 9
 verifies by default and 8 does not, so on Windows' ffprobe 9 the first daily run pruned them as
 dead. `-tls_verify 0` cannot fix that: FFmpeg 9's HLS demuxer does not pass it to the variant
-playlists and segments it opens. So the job runs on FFmpeg 8, and this fails on a host whose
-ffprobe verifies.
+playlists and segments it opens. So the job's ffprobe must be FFmpeg 8 or older, and this
+fails on a host whose ffprobe verifies.
 
 The fixture is a 1-second HLS stream served over HTTPS with a self-signed, test-only certificate
 (tests/fixtures/selfsigned, generated with ffmpeg and openssl). Needs ffprobe on PATH.

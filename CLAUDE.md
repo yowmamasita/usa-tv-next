@@ -33,15 +33,14 @@ URL deduplication, DNS filtering, ffprobe checks and channel matching.
 
 ## Daily job
 
-`deploy/windows-daily.ps1` runs on `ben@windows` as scheduled task `usatv-daily` (06:00 local)
-from the clone `C:\Users\ben\usatv`: prune, `run --no-resume` (a resumed run skips sources
-already harvested), the tests, then a push of `main` with the repository's write deploy key
-`usatv daily job (windows)` (`C:\Users\ben\.ssh\usatv_deploy`), through Git for Windows' own
-`ssh.exe` in the clone's `core.sshCommand` (Windows OpenSSH hangs when git spawns it), with
-commit signing off in the clone, and ffprobe from FFmpeg 8.1.2 in `C:\Users\ben\tools`: FFmpeg 9
-verifies TLS certificates, even in HLS segments with `-tls_verify 0`, and prunes streams that play. Log:
-`C:\Users\ben\logs\usatv-daily.log`. The previous job (May to 2026-08-24) lived on a machine
-nobody recorded and never updated `stream/tv/`.
+`deploy/daily.sh` runs on `ben@zen` from `~/usatv`, from ben's crontab at 05:00 UTC under
+`flock`, logging to `~/logs/usatv-daily.log`: prune, `run --no-resume` (a resumed run skips
+sources already harvested), the tests, then a push of `main` with the repository's write deploy
+key `usatv daily job (zen)` (`~/.ssh/usatv_deploy`, set in the clone's `core.sshCommand`, with
+commit signing off). `NO_PUSH=1` stops after the local commit. Keep its ffprobe on FFmpeg 8 or
+older: FFmpeg 9 verifies TLS certificates, even in HLS segments with `-tls_verify 0`, and prunes
+streams that play (`tests/test_tester_tls.py` fails there). The previous job (May to 2026-08-24)
+lived on a machine nobody recorded and never updated `stream/tv/`.
 
 ## Deployment
 
