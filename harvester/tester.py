@@ -27,6 +27,7 @@ async def _resolve_host(host: str, timeout: float = 3.0) -> bool:
 
 async def test_stream(url: str, timeout: float = 8.0) -> StreamTestResult:
     start = time.monotonic()
+    proc = None
     try:
         proc = await asyncio.create_subprocess_exec(
             "ffprobe",
@@ -79,6 +80,9 @@ async def test_stream(url: str, timeout: float = 8.0) -> StreamTestResult:
         )
 
     except asyncio.TimeoutError:
+        if proc and proc.returncode is None:
+            proc.kill()  # live streams never end; an unkilled ffprobe runs on forever
+            await proc.wait()
         elapsed_ms = int((time.monotonic() - start) * 1000)
         return StreamTestResult(
             url=url,
