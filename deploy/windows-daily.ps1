@@ -9,11 +9,12 @@ $env:PATH = "C:\Users\ben\tools\ffmpeg-8.1.2-full_build\bin;$env:PATH"
 $repo = Split-Path -Parent $PSScriptRoot
 $log = "C:\Users\ben\logs\usatv-daily.log"
 New-Item -ItemType Directory -Force (Split-Path $log) | Out-Null
-Start-Transcript -Append -Path $log | Out-Null
+$env:NO_COLOR = "1"
+function Log($line) { Add-Content -Encoding utf8 $log $line }
 
 function Step($name, [scriptblock]$cmd) {
-    Write-Output "== $(Get-Date -Format o) $name"
-    & $cmd
+    Log "== $(Get-Date -Format o) $name"
+    & $cmd 2>&1 | ForEach-Object { "$_" } | Add-Content -Encoding utf8 $log
     if ($LASTEXITCODE -ne 0) { throw "$name failed with exit code $LASTEXITCODE" }
 }
 
@@ -25,11 +26,12 @@ try {
     Step "harvest+inject" { uv run python -m harvester run --no-resume }
     Step "tests" { uv run python -m unittest discover -s tests }
     $changed = git status --porcelain -- catalog meta stream
-    if (-not $changed) { Write-Output "No stream changes"; return }
+    if (-not $changed) { Log "No stream changes"; return }
     Step "commit" { git add -- catalog meta stream; git commit -q -m "feat: daily refresh - prune dead and inject working streams" }
-    if ($NoPush) { Write-Output "Committed $(git rev-parse --short HEAD), not pushed"; return }
+    if ($NoPush) { Log "Committed $(git rev-parse --short HEAD), not pushed"; return }
     Step "push" { git push -q origin HEAD:main }
-    Write-Output "Pushed $(git rev-parse --short HEAD)"
-} finally {
-    Stop-Transcript | Out-Null
+    Log "Pushed $(git rev-parse --short HEAD)"
+} catch {
+    Log "FAILED: $_"
+    throw
 }
