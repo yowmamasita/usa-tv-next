@@ -31,6 +31,16 @@ URL deduplication, DNS filtering, ffprobe checks and channel matching.
   false failures; do not increase it without measuring on the test host.
 - `manifest.json` identifies the addon; `public/` holds its images.
 
+## Daily job
+
+`deploy/windows-daily.ps1` runs on `ben@windows` as scheduled task `usatv-daily` (06:00 local)
+from the clone `C:\Users\ben\usatv`: prune, `run --no-resume` (a resumed run skips sources
+already harvested), the tests, then a push of `main` with the repository's write deploy key
+`usatv daily job (windows)` (`C:\Users\ben\.ssh\usatv_deploy`), through Git for Windows' own
+`ssh.exe` in the clone's `core.sshCommand` (Windows OpenSSH hangs when git spawns it). Log:
+`C:\Users\ben\logs\usatv-daily.log`. The previous job (May to 2026-08-24) lived on a machine
+nobody recorded and never updated `stream/tv/`.
+
 ## Deployment
 
 Pushing catalog/meta/stream changes to `yowmamasita/usa-tv-next` publishes the
