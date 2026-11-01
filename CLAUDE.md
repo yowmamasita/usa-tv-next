@@ -37,7 +37,9 @@ URL deduplication, DNS filtering, ffprobe checks and channel matching.
 from the clone `C:\Users\ben\usatv`: prune, `run --no-resume` (a resumed run skips sources
 already harvested), the tests, then a push of `main` with the repository's write deploy key
 `usatv daily job (windows)` (`C:\Users\ben\.ssh\usatv_deploy`), through Git for Windows' own
-`ssh.exe` in the clone's `core.sshCommand` (Windows OpenSSH hangs when git spawns it). Log:
+`ssh.exe` in the clone's `core.sshCommand` (Windows OpenSSH hangs when git spawns it), with
+commit signing off in the clone, and ffprobe from FFmpeg 8.1.2 in `C:\Users\ben\tools`: FFmpeg 9
+verifies TLS certificates, even in HLS segments with `-tls_verify 0`, and prunes streams that play. Log:
 `C:\Users\ben\logs\usatv-daily.log`. The previous job (May to 2026-08-24) lived on a machine
 nobody recorded and never updated `stream/tv/`.
 
