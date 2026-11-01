@@ -37,7 +37,12 @@ URL deduplication, DNS filtering, ffprobe checks and channel matching.
 `flock`, logging to `~/logs/usatv-daily.log`: prune, `run --no-resume` (a resumed run skips
 sources already harvested), the tests, then a push of `main` with the repository's write deploy
 key `usatv daily job (zen)` (`~/.ssh/usatv_deploy`, set in the clone's `core.sshCommand`, with
-commit signing off). `NO_PUSH=1` stops after the local commit. Keep its ffprobe on FFmpeg 8 or
+commit signing off). `NO_PUSH=1` stops after the local commit. The router sends all port-53 DNS
+to NextDNS, which blocks some stream hosts (`world-iptv.club`, ad-insertion hosts), and prune
+counts an unresolvable host as dead. So the script re-runs itself in a private mount namespace
+(`unshare --user --mount`, no root) whose `/etc/resolv.conf` is `deploy/resolv.conf`: unbound on
+`127.0.0.2:53` (apt package, `/etc/unbound/unbound.conf.d/usatv-doh.conf`), forwarding over DNS over
+TLS to 1.1.1.1 and 9.9.9.9. The rest of zen keeps NextDNS through systemd-resolved. Keep its ffprobe on FFmpeg 8 or
 older: FFmpeg 9 verifies TLS certificates, even in HLS segments with `-tls_verify 0`, and prunes
 streams that play (`tests/test_tester_tls.py` fails there). The previous job (May to 2026-08-24)
 lived on a machine nobody recorded and never updated `stream/tv/`.
