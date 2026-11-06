@@ -1,1 +1,1 @@
-{"streams":[{"url":"http://181.119.215.61:8000/play/a0g9/index.m3u8","behaviorHints":{"notWebReady":true},"name":"SD","description":"HV:181"}]}
+{"streams":[{"url":"http://181.119.215.61:8000/play/a0g9/index.m3u8","behaviorHints":{"notWebReady":true},"name":"SD","description":"HV:181"},{"url":"http://158.172.217.18:8000/play/a01a/index.m3u8","behaviorHints":{"notWebReady":true},"name":"SD","description":"HV:158"}]}
