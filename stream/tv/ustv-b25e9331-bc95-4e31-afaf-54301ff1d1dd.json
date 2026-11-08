@@ -1,1 +1,1 @@
-{"streams":[{"url":"http://185.227.34.179:8080/disney-xd/index.m3u8","behaviorHints":{"notWebReady":true},"name":"SD","description":"HV:185"}]}
+{"streams":[{"url":"http://185.227.34.179:8080/disney-xd/index.m3u8","behaviorHints":{"notWebReady":true},"name":"SD","description":"HV:185"},{"url":"https://kinowalk.hopto.org/disneyxd_live","behaviorHints":{"notWebReady":true},"name":"HD","description":"HV:KINOWALK"}]}
