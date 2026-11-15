@@ -1,6 +1,8 @@
+
+
 # USA TV Next
 
-190 live TV channels across 10 genres: Sports, Entertainment, News, Premium, Kids, Lifestyle, Documentaries, Local, Music, Latino.
+169 live TV channels across 10 genres: Sports, Entertainment, News, Premium, Kids, Lifestyle, Documentaries, Local, Music, Latino.
 
 Static Stremio addon hosted entirely on GitHub using raw URLs — no server required.
 
