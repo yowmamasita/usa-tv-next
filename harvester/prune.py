@@ -1,19 +1,24 @@
 """Test all streams in the addon catalog and remove dead ones.
 
-A stream is only considered dead after failing every 30s for 5 minutes.
+A stream is only considered dead after failing every 30s for 10 minutes.
 All failed URLs are retried in parallel — each gets its own retry loop.
+
+A removed stream is kept in data/pruned.json and tested again on every later run, and put back in
+its channels' stream files once it works: inject only adds streams the harvest sources carry, so a
+stream no source lists (Toonami Aftermath's own) was lost for good after one outage.
 """
 from __future__ import annotations
 
 import asyncio
 import json
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 
 from rich.console import Console
 from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, MofNCompleteColumn
 
 from harvester.inject import merged_streams
-from harvester.config import DEFAULT_TEST_CONCURRENCY, DEFAULT_TIMEOUT
+from harvester.config import DATA_DIR, DEFAULT_TEST_CONCURRENCY, DEFAULT_TIMEOUT
 from harvester.models import ParsedStream, StreamStatus
 from harvester.tester import test_stream, test_streams
 
@@ -21,6 +26,8 @@ CATALOG_PATH = Path(__file__).resolve().parent.parent / "catalog" / "tv" / "all.
 META_DIR = Path(__file__).resolve().parent.parent / "meta" / "tv"
 GENRE_DIR = Path(__file__).resolve().parent.parent / "catalog" / "tv" / "all"
 STREAM_DIR = Path(__file__).resolve().parent.parent / "stream" / "tv"
+PRUNED_PATH = DATA_DIR / "pruned.json"
+PRUNED_KEEP = timedelta(days=30)
 
 RETRY_INTERVAL = 30
 RETRY_DURATION = 600
@@ -66,6 +73,10 @@ async def _retry_one(url: str, timeout: float, sem: asyncio.Semaphore) -> tuple[
 async def _prune(timeout: float, concurrency: int, dry_run: bool) -> dict:
     catalog = json.loads(CATALOG_PATH.read_text())
     all_streams = _collect_catalog_streams(catalog)
+    # {url: {"stream": entry, "channels": [ids], "since": iso}}
+    pruned: dict[str, dict] = json.loads(PRUNED_PATH.read_text()) if PRUNED_PATH.exists() else {}
+    listed = {s.url for s in all_streams}
+    all_streams += [ParsedStream(url=url) for url in pruned if url not in listed]
 
     if not all_streams:
         console.print("[red]No streams found in catalog[/]")
@@ -122,8 +133,17 @@ async def _prune(timeout: float, concurrency: int, dry_run: bool) -> dict:
         console.print("[yellow]Dry run — no files modified[/]")
         return {"tested": len(results), "dead": len(dead_urls), "removed": 0}
 
+    restored = {url: p for url, p in pruned.items() if url in working_urls}
+    now = datetime.now(timezone.utc)
     removed = 0
     for ch in catalog["metas"]:
+        for s in ch.get("streams", []) + _served(ch["id"]):
+            url = s.get("url", "")
+            if url in dead_urls:
+                entry = pruned.setdefault(url, {"stream": s, "channels": [], "since": now.isoformat()})
+                if ch["id"] not in entry["channels"]:
+                    entry["channels"].append(ch["id"])
+                console.print(f"Removing {url} from {ch.get('name', ch['id'])}")
         before = len(ch.get("streams", []))
         ch["streams"] = _remove_dead_from_list(ch.get("streams", []), dead_urls)
         removed += before - len(ch["streams"])
@@ -149,9 +169,21 @@ async def _prune(timeout: float, concurrency: int, dry_run: bool) -> dict:
         stream_file = STREAM_DIR / f"{ch['id']}.json"
         if stream_file.exists():
             served = _remove_dead_from_list(_served(ch["id"]), dead_urls)
+            served_urls = {s.get("url") for s in served}
+            for url, p in restored.items():
+                if ch["id"] in p["channels"] and url not in served_urls:
+                    served.append(p["stream"])
+                    console.print(f"Restoring {url} to {ch.get('name', ch['id'])}")
             stream_file.write_text(json.dumps({"streams": merged_streams(served, ch["streams"])}, separators=(",", ":")))
 
-    console.print(f"[bold green]Removed {removed} dead streams from catalog[/]")
+    for url in restored:
+        del pruned[url]
+    for url in [u for u, p in pruned.items() if now - datetime.fromisoformat(p["since"]) > PRUNED_KEEP]:
+        del pruned[url]
+    PRUNED_PATH.parent.mkdir(parents=True, exist_ok=True)
+    PRUNED_PATH.write_text(json.dumps(pruned, indent=1))
+
+    console.print(f"[bold green]Removed {removed} dead streams from catalog, restored {len(restored)}[/]")
     return {"tested": len(results), "dead": len(dead_urls), "removed": removed}
 
 
