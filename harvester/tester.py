@@ -1,10 +1,12 @@
 from __future__ import annotations
 
 import asyncio
+import ipaddress
 import json
 import socket
 import time
 from collections import defaultdict
+from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timezone
 from urllib.parse import urlparse
 
@@ -12,17 +14,29 @@ from rich.progress import Progress, SpinnerColumn, BarColumn, TextColumn, MofNCo
 
 from harvester.models import CodecInfo, ParsedStream, StreamStatus, StreamTestResult
 
+DNS_CONCURRENCY = 200
 
-async def _resolve_host(host: str, timeout: float = 3.0) -> bool:
-    loop = asyncio.get_event_loop()
+
+async def _resolve_host(host: str, pool: ThreadPoolExecutor, timeout: float = 3.0) -> str:
+    """Why host does not resolve, or "" when it does.
+
+    The clock starts here, so pool must have a thread free for the lookup: on zen's 6-thread
+    default executor most lookups timed out still queued, IP literals and jmp2.uk among them.
+    """
     try:
-        await asyncio.wait_for(
-            loop.run_in_executor(None, socket.getaddrinfo, host, None),
-            timeout=timeout,
-        )
-        return True
-    except Exception:
-        return False
+        ipaddress.ip_address(host)
+        return ""  # an IP literal needs no lookup
+    except ValueError:
+        pass
+    lookup = asyncio.get_running_loop().run_in_executor(pool, socket.getaddrinfo, host, None)
+    try:
+        await asyncio.wait_for(asyncio.shield(lookup), timeout)
+        return ""
+    except asyncio.TimeoutError:
+        await asyncio.gather(lookup, return_exceptions=True)  # keep the caller's slot until the thread is free
+        return f"DNS lookup timed out after {timeout:g}s"
+    except Exception as e:  # gaierror, or UnicodeError for a label IDNA cannot encode
+        return f"DNS lookup failed: {e}"
 
 
 async def test_stream(url: str, timeout: float = 8.0) -> StreamTestResult:
@@ -133,23 +147,21 @@ async def test_streams(
                 unique_hosts.add(host)
 
         dns_task = progress.add_task("DNS resolve", total=len(unique_hosts), working=0, dead=0, timeout=0)
-        dns_sem = asyncio.Semaphore(200)
-        live_hosts: set[str] = set()
+        dns_sem = asyncio.Semaphore(DNS_CONCURRENCY)
         dead_host_count = 0
 
-        async def resolve_one(host: str) -> tuple[str, bool]:
+        async def resolve_one(host: str) -> tuple[str, str]:
             nonlocal dead_host_count
             async with dns_sem:
-                alive = await _resolve_host(host)
-                if not alive:
+                error = await _resolve_host(host, dns_pool)
+                if error:
                     dead_host_count += 1
                 progress.update(dns_task, advance=1, dead=dead_host_count, working=0, timeout=0)
-                return host, alive
+                return host, error
 
-        dns_results = await asyncio.gather(*[resolve_one(h) for h in unique_hosts])
-        for host, alive in dns_results:
-            if alive:
-                live_hosts.add(host)
+        with ThreadPoolExecutor(DNS_CONCURRENCY) as dns_pool:  # a thread for every slot
+            dns_errors = dict(await asyncio.gather(*[resolve_one(h) for h in unique_hosts]))
+        live_hosts = {host for host, error in dns_errors.items() if not error}
 
         alive_streams = []
         for s in urls_to_test:
@@ -164,6 +176,7 @@ async def test_streams(
                     group=s.group,
                     sources=s.source_id.split(",") if s.source_id else [],
                     tested_at=datetime.now(timezone.utc).isoformat(),
+                    error=dns_errors.get(host, "no host in URL"),
                 )
                 results.append(r)
                 if on_result:
